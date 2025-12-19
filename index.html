@@ -39,20 +39,50 @@
       h1, h2, h3, h4 {
         font-family: 'Noto Serif JP', serif;
       }
+      /* Loading Spinner */
+      .initial-loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #FFFDE7;
+        color: #881337;
+        font-family: 'Noto Serif JP', serif;
+        flex-direction: column;
+        gap: 1rem;
+      }
     </style>
-  <script type="importmap">
+    <!-- Error Handler for White Screen debugging -->
+    <script>
+      window.addEventListener('error', function(event) {
+        const root = document.getElementById('root');
+        if (root && root.innerHTML.trim() === '') {
+           console.error("App failed to mount:", event.error);
+           // Optional: Display error on screen for debugging dev builds
+           // root.innerHTML = '<div style="padding:20px; color:red"><h1>Application Error</h1><pre>' + event.error + '</pre></div>';
+        }
+      });
+    </script>
+    <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "framer-motion": "https://esm.sh/framer-motion@^12.23.26"
+    "react": "https://esm.sh/react@18.3.1",
+    "react/": "https://esm.sh/react@18.3.1/",
+    "react-dom": "https://esm.sh/react-dom@18.3.1",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.344.0",
+    "framer-motion": "https://esm.sh/framer-motion@11.0.8",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
   }
 }
 </script>
-</head>
+  </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="initial-loader">
+        <div class="animate-pulse text-2xl font-bold">Rosarium</div>
+        <div class="text-sm">Loading System...</div>
+      </div>
+    </div>
   </body>
 </html>
