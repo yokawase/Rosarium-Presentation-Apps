@@ -1,0 +1,7 @@
+{
+  "name": "Rosarium Presentation Apps",
+  "description": "A digital inheritance platform for Japanese roses (Rosa Orientis), connecting breeders with citizen science data.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
